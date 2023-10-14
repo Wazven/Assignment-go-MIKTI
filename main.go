@@ -9,6 +9,7 @@ import (
 type Bill struct{
 	Tagihan float64
 	Tip float64
+	Total float64
 }
 
 func main() {
@@ -33,7 +34,7 @@ func main() {
     }
     // Menampilkan hasil pada console
     for _, bill := range bills {
-        fmt.Printf("Tagihan %.2f, tipnya %.2f, dan total nilainya %.2f\n", bill.Tagihan, bill.Tip, bill.Tagihan+bill.Tip)
+        fmt.Printf("Tagihan %.2f, tipnya %.2f, dan total nilainya %.2f\n", bill.Tagihan, bill.Tip, bill.Total)
     }
 
 	// membuat file invoice.txt
@@ -49,6 +50,7 @@ func calculateTip(tagihan float64) *Bill { // sebagai fungsi menghitung tip
 	} else {
 		bill.Tip = tagihan * 0.2 // untuk sebagai tip 20% apabila kurang dari sama dengan 50 dan lebih dari sama dengan 300
 	}
+	bill.Total = tagihan + bill.Tip
 	return bill
 }
 
@@ -60,7 +62,7 @@ func Invoice(bills []*Bill) error { // sebagai fungsi untuk membuat invoice
     defer invoice.Close()
 
     for _, bill := range bills {
-        _, err := invoice.WriteString(fmt.Sprintf("Tagihan: %.2f\nTip: %.2f\nTotal: %.2f\n\n", bill.Tagihan, bill.Tip, bill.Tagihan+bill.Tip))
+        _, err := invoice.WriteString(fmt.Sprintf("Tagihan: %.2f\nTip: %.2f\nTotal: %.2f\n\n", bill.Tagihan, bill.Tip, bill.Total))
         if err != nil {
             return err
         }
