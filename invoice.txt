@@ -1,0 +1,16 @@
+Tagihan: 275.00
+Tip: 41.25
+Total: 316.25
+
+Tagihan: 40.00
+Tip: 8.00
+Total: 48.00
+
+Tagihan: 430.00
+Tip: 86.00
+Total: 516.00
+
+Tagihan: 80.00
+Tip: 12.00
+Total: 92.00
+
