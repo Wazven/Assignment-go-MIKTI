@@ -42,7 +42,7 @@ func main() {
 	}
 }
 
-func calculateTip(tagihan float64) *Bill {
+func calculateTip(tagihan float64) *Bill { // sebagai fungsi menghitung tip
 	bill := &Bill{Tagihan: tagihan}
 	if tagihan >= 50 && tagihan <= 300 {
 		bill.Tip = tagihan * 0.15 // untuk sebagai tip 15% apabila lebih dari sama dengan 50 dan kurang dari sama dengan 300
@@ -52,7 +52,7 @@ func calculateTip(tagihan float64) *Bill {
 	return bill
 }
 
-func Invoice(bills []*Bill) error {
+func Invoice(bills []*Bill) error { // sebagai fungsi untuk membuat invoice
 	invoice, err := os.Create("invoice.txt")
     if err != nil {
         return err
